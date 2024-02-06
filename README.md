@@ -1,9 +1,10 @@
 # CDL SplashGen
-
-This is a simple Java web application built using Maven and packaged as a WAR file.
+Generates metadata splash pages for PDFs in [eScholarship](https://escholarship.org/).
 
 ## Description
-Provide a brief description of what the project does.
+CDL Splashgen is a Java web application that runs as a service to make splash
+pages for items in [eScholarship](https://escholarship.org/). It is built
+using Maven and packaged as a WAR file.
 
 ## Build
 To build the project:
@@ -28,13 +29,11 @@ To deploy the WAR file to a standalone servlet container like Tomcat:
 2. Copy the WAR file from target/ to <Tomcat>/webapps/
 3. Start Tomcat
 
-The application will be available at http://<host>:<port>/${war-name}/
-
 ## Documentation
-Provide links to any documentation - Javadocs, general documentation etc.
+work in progress, more soon
 
 ## Authors
-Name of author(s)
+[California Digital Library](https://cdlib.org/)
 
 ## License
-Open source license if applicable.
+[BSD 3-Clause](./LICENSE)
