@@ -68,10 +68,11 @@ and the service has permissions to write to that locaion, of course).
 * GET /splashgen - Healthcheck endpoint
 
 ### Examples
-The utils folder of this project contains a Ruby script,
-[splashGen.rb](utils/splashGen.rb), which is used by the eScholarship Controller
-to add splash pages to items in eScholarship, upon submission. As such, it is a
-good example of how to use the SplashGen service.
+The JSchol code repository contains a Ruby script,
+[splashGen.rb](https://github.com/eScholarship/jschol/blob/master/splash/splashGen.rb), 
+which is used by the eScholarship Controller to add splash pages to items in 
+eScholarship, upon submission. As such, it is a good example of how to use the 
+SplashGen service.
 
 If you are running SplashGen locally, perhaps with the ebmedded Jetty server:
 
@@ -81,6 +82,13 @@ mvn jetty:run
 
 You can interact with the SplashGen service with Curl:
 
+#### Healthcheck
+```bash
+curl -I http://localhost:8080/splashgen
+```
+Returns 200 OK if the service is up.
+
+#### Insert a Splash Page
 Make a POST request with JSON data:
 
 ```bash
@@ -102,12 +110,6 @@ Sample data.json file:
   ]
 }
 ```
-
-### Healthcheck
-```bash
-curl -I http://localhost:8080/splashgen
-```
-Returns 200 OK if the service is up.
 
 ## Authors
 [California Digital Library](https://cdlib.org/)
