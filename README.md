@@ -6,6 +6,13 @@ CDL Splashgen is a Java web application that runs as a service to make splash
 pages for items in [eScholarship](https://escholarship.org/). It is built
 using Maven and packaged as a WAR file.
 
+It's important to note that the [splashGen.rb](https://github.com/eScholarship/jschol/blob/master/splash/splashGen.rb)
+Ruby script in the JSchol repo has considerable control over the content of a
+typical eScholarship splash page. In general, this SplashGen service controls
+which font is used in the splashpage, and handles the process of adding a
+splash page to an item. All other changes to an eScholarship splash page
+need to be made in the JSchol code repository.
+
 ## Build
 To build the project:
 ```bash
@@ -20,7 +27,7 @@ mvn jetty:run
 ```
 This will start an embedded Jetty server, deploy the WAR file and start the web application.
 
-Access the application at http://localhost:8080/
+Access the application at http://localhost:8080/splashgen
 
 ## Deploy (generic instructions)
 To deploy the WAR file to a standalone servlet container like Tomcat:
@@ -73,6 +80,7 @@ The JSchol code repository contains a Ruby script,
 which is used by the eScholarship Controller to add splash pages to items in 
 eScholarship, upon submission. As such, it is a good example of how to use the 
 SplashGen service.
+
 
 If you are running SplashGen locally, perhaps with the ebmedded Jetty server:
 
