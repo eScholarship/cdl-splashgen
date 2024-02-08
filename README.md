@@ -39,8 +39,77 @@ eye info tomcat
 tomcat ............................ up  (01:01, 0%, 2106Mb, <14558>)
 ```
 
-## Documentation
-work in progress, more soon
+## Assumptions
+The SplashGen service hard codes the paths to the fonts it wants to use.
+Wherever you're running this service, you'll need to ensure that the following
+paths exist:
+
+```
+/usr/share/fonts/dejavu/DejaVuSans.ttf
+/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf
+/usr/share/fonts/Code2000.ttf
+```
+
+## Usage
+
+The SplashGen service accepts POST requests with JSON data containing:
+
+* Input PDF
+* Splash page PDF template
+* Output path
+* JSON instructions for splash page content
+
+When such a POST request is received, SplashGen will generate a new PDF with the
+splash page merged, and write it to the provided output path (if the path exixts
+and the service has permissions to write to that locaion, of course).
+
+### Endpoints
+* POST /splashgen - Main endpoint to generate splash page
+* GET /splashgen - Healthcheck endpoint
+
+### Examples
+The JSchol code repository contains a Ruby script,
+[splashGen.rb](https://github.com/eScholarship/jschol/blob/master/splash/splashGen.rb), 
+which is used by the eScholarship Controller to add splash pages to items in 
+eScholarship, upon submission. As such, it is a good example of how to use the 
+SplashGen service.
+
+If you are running SplashGen locally, perhaps with the ebmedded Jetty server:
+
+```bash
+mvn jetty:run
+```
+
+You can interact with the SplashGen service with Curl:
+
+#### Healthcheck
+```bash
+curl -I http://localhost:8080/splashgen
+```
+Returns 200 OK if the service is up.
+
+#### Insert a Splash Page
+Make a POST request with JSON data:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d @data.json http://localhost:8080/splashgen
+```
+
+Sample data.json file:
+```json
+{
+  "pdfFile": "/path/to/input.pdf",
+  "splashFile": "/path/to/splashTemplate.pdf",
+  "combinedFile": "/path/to/output.pdf",
+  "instrucs": [
+    {
+      "paragraph": [
+        {"text": "This is splash page content"}
+      ]
+    }
+  ]
+}
+```
 
 ## Authors
 [California Digital Library](https://cdlib.org/)
