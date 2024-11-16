@@ -76,11 +76,11 @@
 
  // Code2000-sanserif.ttf has the glyphs!
 
-     cdlFont = PdfFontFactory.createFont("/usr/share/fonts/dejavu/DejaVuSans.ttf", PdfEncodings.IDENTITY_H, true);
-     normalFont = PdfFontFactory.createFont("/usr/share/fonts/Code2000.ttf", PdfEncodings.IDENTITY_H, true);
-     boldFont = PdfFontFactory.createFont("/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf", PdfEncodings.IDENTITY_H, true);
-     italicFont = PdfFontFactory.createFont("/usr/share/fonts/Code2000.ttf", PdfEncodings.IDENTITY_H, true);
-     boldItalicFont = PdfFontFactory.createFont("/usr/share/fonts/Code2000.ttf", PdfEncodings.IDENTITY_H, true);
+     cdlFont = PdfFontFactory.createFont("/usr/share/fonts/dejavu-sans-fonts/DejaVuSans.ttf", PdfEncodings.IDENTITY_H, true);
+     normalFont = PdfFontFactory.createFont("/apps/eschol/fonts/Code2000.ttf", PdfEncodings.IDENTITY_H, true);
+     boldFont = PdfFontFactory.createFont("/usr/share/fonts/dejavu-sans-fonts/DejaVuSans-Bold.ttf", PdfEncodings.IDENTITY_H, true);
+     italicFont = PdfFontFactory.createFont("/apps/eschol/fonts/Code2000.ttf", PdfEncodings.IDENTITY_H, true);
+     boldItalicFont = PdfFontFactory.createFont("/apps/eschol/fonts/Code2000.ttf", PdfEncodings.IDENTITY_H, true);
 
      doc.setFont(normalFont);
    }
